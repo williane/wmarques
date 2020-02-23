@@ -1,1 +1,1 @@
-Web: gunicorn wassis.wsgi --log-file -
+web: gunicorn wassis.wsgi --log-file -
