@@ -1,2 +1,2 @@
--r requiremnts-dev.txt
+-r requirements-dev.txt
 gunicorn
