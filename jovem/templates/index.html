@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Dashboard</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="info-box blue-bg">
+              <i class="fa fa-user fa-fw"></i>
+              <div class="count">6.674</div>
+              <div class="title">Jovens</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="info-box brown-bg">
+              <i class="fa fa-envelope"></i>
+              <div class="count">7.538</div>
+              <div class="title">Indicações</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="info-box green-bg">
+              <i class="fa fa-thumbs-o-up"></i>
+              <div class="count">4.362</div>
+              <div class="title">Fechadas</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="info-box yellow-bg">
+              <i class="fa fa-exchange"></i>
+              <div class="count">1.426</div>
+              <div class="title">Pendentes</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+        </div>
+        <!--/.row-->
+
+
+        <div class="row">
+          <div class="col-lg-9 col-md-12">
+
+          </div>
+        </div>
+
+
+        <!-- Today status end -->
+        <div class="row">
+
+          <!--/col-->
+
+            <!--/social-box-->
+
+          </div>
+
+        </div>
+        <!-- statics end -->
+
+
+
+
+        <!-- project team & activity start -->
+        <div class="row">
+          <div class="col-lg-12">
+            <!--Project Activity start-->
+            <section class="panel">
+              <div class="panel-body progress-panel">
+                <div class="row">
+                  <div class="col-lg-12 task-progress pull-left">
+                    <h1>Status por Indicação</h1>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--Project Activity end-->
+          </div>
+        </div>
+        <!-- project team & activity end -->
+		<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Data/Hora Preenchimento</th>
+                <th>CPF Responsável</th>
+                <th>Respos. pela Indicação</th>
+                <th>Instituição</th>
+                <th>Nome indicado</th>
+                <th>E-mail</th>
+                <th>Celular</th>
+                <th>Arquivos</th>
+                <th>Status</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>22/01/2020  08:00:00</td>
+                <td>000.000.000-00</td>
+                <td>João</td>
+                <td>Paróquia Vila Hortolândia</td>
+                <td>Indicado 1</td>
+                <td>email@gmail.com</td>
+                <td>11 9 9657-2103</td>
+                <td><i class="fa fa-folder"></i></td>
+                <td>Pendente</td>
+                <td>$320,800</td>
+            </tr>
+			<tr>
+                <td>23/01/2020  08:00:00</td>
+                <td>111.111.111-11</td>
+                <td>Maria</td>
+                <td>Paróquia Vila Hortolândia</td>
+                <td>Indicado 2</td>
+                <td>email@gmail.com</td>
+                <td>11 9 9999-9999</td>
+                <td><i class="fa fa-folder"></i></td>
+                <td>Pendente</td>
+                <td>$120,800</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

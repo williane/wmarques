@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    <title>Creative - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="{% static 'css/elegant-icons-style.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet"/>
+    <!-- full calendar css-->
+    <link href="{% static 'assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/fullcalendar/fullcalendar/fullcalendar.css' %}" rel="stylesheet"/>
+    <!-- easy pie chart-->
+    <link href="{% static 'assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css' %}" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css" type="text/css">
+    <link href="{% static 'css/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{% static 'css/fullcalendar.css' %}">
+    <link href="{% static 'css/widgets.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style-responsive.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/xcharts.min.css' %}" rel=" stylesheet">
+    <link href="{% static 'css/jquery-ui-1.10.4.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<!-- container section start -->
+<section id="container" class="">
+    <!--header start-->
+
+    <header class="header white-bg">
+
+        <!--logo start-->
+        <div class="row">
+
+            <a href="index2.html" class="logo"><img src="{% static 'img\logo.jpg' %}" class="img-fluid" alt="..."></a>
+
+        </div>
+        <!--logo end-->
+        <div class="row">
+            <div class="col-lg-18">
+
+                <img src="{% static 'img\will.jpg' %}" class="rounded-circle" alt="..." width=220 height=220>
+            </div>
+            <div class="col-lg-10">
+                <br><br>
+                <p>Olá, tudo bem?</p>
+                <p> Essa página é para você se cadastrar para receber uma cotação de seguros sem compromisso e caso
+                    venha a contrarar o seguro com a W.Assis, irá me ajudar nos custos para a Jornada Mundial da
+                    Juventude que será em Lisboa, em Julho de 2022. </p>
+                <p> Para me ajudar é simples, basta preencher seus dados e a equipe comercial fará os orçamentos do seu
+                    seguro gratuitamente.</p>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+    </header>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <!--main content start-->
+
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-lg-8">
+                <br><br><br><br><br><br><br><br><br><br>
+                <section class="panel">
+                    <header class="panel-heading">
+                    </header>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nome<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="exampleInputText1" placeholder="Nome"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email<span class="required">*</span></label>
+                                <input class="form-control " id="cemail" type="email" name="email"
+                                       placeholder="Enter email" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Telefone<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="exampleInputText1" placeholder="Telefone"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Envie sua apólice</label>
+                                <input type="file" id="exampleInputFile">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="col-sm">
+
+            </div>
+        </div>
+    </section>
+    <!--main content end-->
+    <div class="text-right">
+        <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+            -->
+            Designed by <a href="#">Wmarques</a>
+        </div>
+    </div>
+</section>
+<!-- container section end -->
+<!-- javascripts -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery-ui-1.10.4.min.js' %}"></script>
+<script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui-1.9.2.custom.min.js' %}"></script>
+<!-- bootstrap -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- nice scroll -->
+<script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'js/jquery.nicescroll.js" type="text/javascript' %}"></script>
+<!-- charts scripts -->
+<script src="{% static 'assets/jquery-knob/js/jquery.knob.js' %}"></script>
+<script src="{% static 'js/jquery.sparkline.js" type="text/javascript' %}"></script>
+<script src="{% static 'assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js' %}"></script>
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<!-- jQuery full calendar -->
+<
+<script src="{% static 'js/fullcalendar.min.js' %}"></script>
+<!-- Full Google Calendar - Calendar -->
+<script src="{% static 'assets/fullcalendar/fullcalendar/fullcalendar.js' %}"></script>
+<!--script for this page only-->
+<script src="{% static 'js/calendar-custom.js' %}"></script>
+<script src="{% static 'js/jquery.rateit.min.js' %}"></script>
+<!-- custom select -->
+<script src="{% static 'js/jquery.customSelect.min.js' %}"></script>
+<script src="{% static 'assets/chart-master/Chart.js' %}"></script>
+
+<!--custome script for all page-->
+<script src="{% static 'js/scripts.js' %}"></script>
+<!-- custom script for this page-->
+<script src="{% static 'js/sparkline-chart.js' %}"></script>
+<script src="{% static 'js/easy-pie-chart.js' %}"></script>
+<script src="{% static 'js/jquery-jvectormap-1.2.2.min.js' %}"></script>
+<script src="{% static 'js/jquery-jvectormap-world-mill-en.js' %}"></script>
+<script src="{% static 'js/xcharts.min.js' %}"></script>
+<script src="{% static 'js/jquery.autosize.min.js' %}"></script>
+<script src="{% static 'js/jquery.placeholder.min.js' %}"></script>
+<script src="{% static 'js/gdp-data.js' %}"></script>
+<script src="{% static 'js/morris.min.js' %}"></script>
+<script src="{% static 'js/sparklines.js' %}"></script>
+<script src="{% static 'js/charts.js' %}"></script>
+<script src="{% static 'js/jquery.slimscroll.min.js' %}"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+      //knob
+      $(function() {
+        $(".knob").knob({
+          'draw': function() {
+            $(this.i).val(this.cv + '%')
+          }
+        })
+      });
+
+      //carousel
+      $(document).ready(function() {
+        $("#owl-slider").owlCarousel({
+          navigation: true,
+          slideSpeed: 300,
+          paginationSpeed: 400,
+          singleItem: true
+
+        });
+      });
+
+      //custom select box
+
+      $(function() {
+        $('select.styled').customSelect();
+      });
+
+      /* ---------- Map ---------- */
+      $(function() {
+        $('#map').vectorMap({
+          map: 'world_mill_en',
+          series: {
+            regions: [{
+              values: gdpData,
+              scale: ['#000', '#000'],
+              normalizeFunction: 'polynomial'
+            }]
+          },
+          backgroundColor: '#eef3f7',
+          onLabelShow: function(e, el, code) {
+            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+          }
+        });
+      });
+
+	  /* -------- tabela ---------- */
+
+	  $(document).ready(function() {
+    $('#example').DataTable( {
+        "order": [[ 0, "desc" ]]
+    } );
+} );
+
+</script>
+
+</body>
+
+</html>
