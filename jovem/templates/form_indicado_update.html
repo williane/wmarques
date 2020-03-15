@@ -10,13 +10,13 @@
     <ul class="sidebar-menu">
        <ul class="sidebar-menu">
             {% if usu.tipo.nome == 'admin' %}
-            <li>
+            <li class="active">
                 <a class="" href="{% url 'index' %}">
                     <i class="icon_house_alt"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="{% url 'usuario_list' %}" class="">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span>Usuarios</span>
@@ -55,7 +55,6 @@
           <form role="form" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|bootstrap }}
-            {{ form2|bootstrap }}
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
 

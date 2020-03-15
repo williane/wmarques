@@ -14,7 +14,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sub-menu">
+                <li class="active">
                     <a href="{% url 'usuario_list' %}" class="">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span>Usuarios</span>
@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 {% endif %}
-                <li class="active">
+                <li>
                     <a href="{% url 'acompanhar_status' %}" class="">
                         <i class="icon_desktop"></i>
                         <span>Acompanhar Status</span>
@@ -44,12 +44,11 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="page-header"><i class="fa fa-laptop"></i> Acompanhar Status</h3>
+                <h3 class="page-header"><i class="fa fa-user" aria-hidden="true"></i>Usuarios</h3>
                 <ol class="breadcrumb">
                     <li><i class="fa fa-home"></i><a href="{% url 'index' %}">Home</a></li>
-                    <li><i class="fa fa-laptop"></i>Acompanhar Status</li>
-                    <li><i class="fa fa-plus-square-o" aria-hidden="true"></i><a href="{% url 'indicacao' usu.id %}">Novo</a></li>
-
+                    <li><i class="fa fa-laptop"></i>Usuarios</li>
+                    <li><i class="fa fa-plus-square-o" aria-hidden="true"></i><a href="{% url 'form_user' %}">Novo</a></li>
                 </ol>
             </div>
         </div>
@@ -87,36 +86,37 @@
         <table id="example" class="display" style="width:100%">
             <thead>
             <tr>
-                <th>Data/Hora Preenchimento</th>
-                <th>Nome indicado</th>
-                <th>E-mail</th>
-                <th>Celular</th>
-                <th>Status</th>
-                <th>Valor</th>
+                <th>Instituição</th>
+                <th>Nome</th>
+                <th>Usuario</th>
+                <th>CPF</th>
+                <th>E-mail 1</th>
+                <th>E-mail 2</th>
+                <th>Celular 1</th>
+                <th>Celular 2</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
             </thead>
             <tbody>
-            {% for ind in indicados %}
+            {% for int in inst %}
             <tr>
-                <td>{{ ind.data }}</td>
-                <td>{{ ind.nome }}</td>
-                <td>{{ ind.email }}</td>
-                <td>{{ ind.telefone }}</td>
-                <td>{{ ind.status }}</td>
-                <td>{{ ind.valor_comissao }}</td>
+                <td>{{ int.instituicao }}</td>
+                <td>{{ int.nome }}</td>
+                <td>{{ int.user }}</td>
+                <td>{{ int.cpf }}</td>
+                <td>{{ int.email1 }}</td>
+                <td>{{ int.email2 }}</td>
+                <td>{{ int.celular1 }}</td>
+                <td>{{ int.celular2 }}</td>
+                <td><a href="{% url 'usuario_update' int.id %}" class="">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                </td>
+                <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
             </tr>
             {% endfor %}
             </tbody>
-            <tfoot>
-            <tr>
-                <th>Total</th>
-                <th>{{ indicados.count }}</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>{{ valor}}</th>
-            </tr>
-            </tfoot>
         </table>
 
 

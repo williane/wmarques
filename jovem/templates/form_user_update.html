@@ -55,7 +55,6 @@
           <form role="form" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|bootstrap }}
-            {{ form2|bootstrap }}
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
 
