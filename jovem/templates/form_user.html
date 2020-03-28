@@ -54,21 +54,23 @@
 
                     <form role="form" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% if form2.errors %}
+                        {{ form|bootstrap }}
+                        {% if validar %}
+                        <br>
                         <div class="alert alert-warning" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <p>Your Form has errors</p>
+                            <p>Campos: CPF, EMAIL1 e Celular1 são obrigatórios</p>
                         </div>
+                        <br>
                         {% endif %}
-                        {{ form|bootstrap }}
                         {{ form2.username|bootstrap }}
+                        <label for="basic-url">senha: {{ senha }}</label>
                         {{ form2.password1|bootstrap}}
                         {{ form2.password2|bootstrap}}
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-
                 </div>
             </section>
         </div>

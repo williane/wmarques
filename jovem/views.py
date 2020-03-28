@@ -4,11 +4,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.db.models import Avg, Count, Min, Sum
-from django.core.mail import send_mail
 from .models import Instituicao, Usuario, indicado, Indicado_status
 from .forms import InstituicaoForm, UsuarioForm, IndicadoForm, IndicadoForm2
 from random import choice
 import smtplib
+from email.mime.text import MIMEText
 
 
 def gerador_senha(tamanho):
@@ -60,8 +60,9 @@ def acompanhar_status(request):
     usu = get_object_or_404(Usuario, user=request.user)
     indicados = indicado.objects.filter(resp_indicacao=usu)
     valor = indicado.objects.filter(resp_indicacao=usu).aggregate(Sum('valor_comissao')).get('valor_comissao__sum', 0.00)
+    nome = usu.nome.replace(" ", "-").lower()
 
-    return render(request, 'acompanhar_status.html', {'usu': usu, 'indicados': indicados, 'valor': valor})
+    return render(request, 'acompanhar_status.html', {'usu': usu, 'indicados': indicados, 'valor': valor, 'nome': nome})
 
 
 @login_required
@@ -70,15 +71,46 @@ def form_user(request):
     form2 = UserCreationForm(request.POST or None, request.FILES or None)
     usu = get_object_or_404(Usuario, user=request.user)
     senha = gerador_senha(10)
+    validar = 'Validar'
 
     if form2.is_valid():
-        post1 = form2.save(commit=False)
-        post1.save()
         if form.is_valid():
-            post = form.save(commit=False)
-            post.user = form2.cleaned_data['username']
-            post.save()
-            return redirect('usuario_list')
+            print(form.cleaned_data['tipo'])
+            if str(form.cleaned_data['tipo']) != 'instituição':
+                if form.cleaned_data['cpf'] is None or form.cleaned_data['email1'] is None or \
+                        form.cleaned_data['celular1'] is None:
+                    return render(request, 'form_user.html', {'form': form, 'form2': form2, 'usu': usu, 'senha': senha,
+                                                              'validar': validar})
+                else:
+                    post1 = form2.save(commit=False)
+                    post1.save()
+                    post = form.save(commit=False)
+                    post.user = form2.cleaned_data['username']
+                    post.save()
+                    email = form.cleaned_data['email1']
+                    body = '<p> Olá {},</p> <p> Você esta cadastrado para o projeto de indicações da seguradora WAssis,' \
+                           'segue abaixo seu usuario e senha:</p><br><p> usuario: {}</p> <p>Senha: {}</p><br>' \
+                           '<p>Entre atraves deste link: https://wassis.herokuapp.com/jovem/</p>'
+
+                    if email:
+                        send_email(request, body.format(form.cleaned_data['nome'], form2.cleaned_data['username'],
+                                                        form2.cleaned_data['password1']), email)
+                    return redirect('usuario_list')
+            else:
+                post1 = form2.save(commit=False)
+                post1.save()
+                post = form.save(commit=False)
+                post.user = form2.cleaned_data['username']
+                post.save()
+                email = form.cleaned_data['email1']
+                body = '<p> Olá {},</p> <p> Você esta cadastrado para o projeto de indicações da seguradora WAssis,' \
+                   'segue abaixo seu usuario e senha:</p><br><p> usuario: {}</p> <p>Senha: {}</p><br>' \
+                   '<p>Entre atraves deste link: https://wassis.herokuapp.com/jovem/</p>'
+
+                if email:
+                    send_email(request, body.format(form.cleaned_data['nome'], form2.cleaned_data['username'],
+                                                form2.cleaned_data['password1']), email)
+                return redirect('usuario_list')
 
     return render(request, 'form_user.html', {'form': form, 'form2': form2, 'usu': usu, 'senha': senha})
 
@@ -87,14 +119,16 @@ def form_user(request):
 def form_instituicao(request):
     form = InstituicaoForm(request.POST or None, request.FILES or None)
     usu = get_object_or_404(Usuario, user=request.user)
+
     if form.is_valid():
         form.save()
         return redirect('instituicao_list')
+
     return render(request, 'form_instituicao.html', {'form': form, 'usu': usu})
 
 
 @login_required
-def indicacao(request, id):
+def indicacao(request, id, nome):
     form = IndicadoForm(request.POST or None, request.FILES or None)
     usu = get_object_or_404(Usuario, pk=id)
     status = get_object_or_404(Indicado_status, pk=1)
@@ -149,16 +183,32 @@ def instituicao_update(request, id):
 
 
 @login_required
-def send_email(request):
-    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.login("williane.tads@gmail.com", "Will141510m")
-    server.send_mail(
-        'Subject here',
-        'Here is the message.',
-        'williane.tads@gmail.com',
-        ['williane.tads@gmail.com'],
-        fail_silently=False,
-    )
+def send_email(request, body, email):
+    smtp_ssl_host = 'smtp.gmail.com'
+    smtp_ssl_port = 465
+    # username ou email para logar no servidor
+    username = 'wassis.teste@gmail.com'
+    password = 'Wassis2020'
+
+    from_addr = 'wassis.teste@gmail.com'
+    to_addrs = [email]
+
+    # a biblioteca email possuí vários templates
+    # para diferentes formatos de mensagem
+    # neste caso usaremos MIMEText para enviar
+    # somente texto
+    message = MIMEText(body, _subtype='html')
+    message['subject'] = 'Hello'
+    message['from'] = from_addr
+    message['to'] = ', '.join(to_addrs)
+
+    # conectaremos de forma segura usando SSL
+    server = smtplib.SMTP_SSL(smtp_ssl_host, smtp_ssl_port)
+    # para interagir com um servidor externo precisaremos
+    # fazer login nele
+    server.login(username, password)
+    server.sendmail(from_addr, to_addrs, message.as_string())
+    server.quit()
 
     return redirect('instituicao_list')
 
@@ -166,6 +216,7 @@ def send_email(request):
 @login_required
 def form_resetpassword(request):
     usu = get_object_or_404(Usuario, user=request.user)
+
     if request.method == "POST":
         form = PasswordChangeForm(data=request.POST, user=request.user)
         if form.is_valid():

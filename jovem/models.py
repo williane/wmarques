@@ -20,10 +20,10 @@ class Usuario(models.Model):
     tipo = models.ForeignKey(TipoUser, null=True, blank=True, on_delete=models.PROTECT)
     nome = models.CharField(max_length=200)
     user = models.CharField(max_length=200, null=True, blank=True)
-    cpf = models.CharField(max_length=200)
-    email1 = models.CharField(max_length=200)
+    cpf = models.CharField(max_length=200, null=True, blank=True)
+    email1 = models.CharField(max_length=200, null=True, blank=True)
     email2 = models.CharField(max_length=200, null=True, blank=True)
-    celular1 = models.CharField(max_length=50)
+    celular1 = models.CharField(max_length=50, null=True, blank=True)
     celular2 = models.CharField(max_length=50, null=True, blank=True)
     photo = models.ImageField(upload_to='usuario_photos', null=True, blank=True)
 
