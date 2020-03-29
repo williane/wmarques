@@ -61,8 +61,11 @@ def acompanhar_status(request):
     indicados = indicado.objects.filter(resp_indicacao=usu)
     valor = indicado.objects.filter(resp_indicacao=usu).aggregate(Sum('valor_comissao')).get('valor_comissao__sum', 0.00)
     nome = usu.nome.replace(" ", "-").lower()
+    urls = request.build_absolute_uri().find('/', 8)
+    final_url = request.build_absolute_uri()[:urls]
 
-    return render(request, 'acompanhar_status.html', {'usu': usu, 'indicados': indicados, 'valor': valor, 'nome': nome})
+    return render(request, 'acompanhar_status.html', {'usu': usu, 'indicados': indicados, 'valor': valor, 'nome': nome,
+                                                      'final_url': final_url})
 
 
 @login_required
