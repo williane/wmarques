@@ -130,7 +130,6 @@ def form_instituicao(request):
     return render(request, 'form_instituicao.html', {'form': form, 'usu': usu})
 
 
-
 def indicacao(request, id, nome):
     form = IndicadoForm(request.POST or None, request.FILES or None)
     usu = get_object_or_404(Usuario, pk=id)

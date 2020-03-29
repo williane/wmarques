@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block main %}
 <!--sidebar start-->
 <aside>
@@ -60,7 +60,15 @@
                             <div class="col-lg-12 task-progress pull-left">
                                 <b>URL para suas indicações: </b> {{final_url}}{% url 'indicacao' usu.id nome %}
                                 &nbsp
-                                <div class="fb-share-button" data-href="{{final_url}}{% url 'indicacao' usu.id nome %}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a></div>
+                                <div class="fb-share-button" data-href="{{final_url}}{% url 'indicacao' usu.id nome %}" data-layout="button" data-size="small">
+                                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a>
+                                </div>
+                                    <a href="#" style="text-decoration: none;"
+                                       onclick="window.open(
+'https://api.whatsapp.com/send?text={{final_url}}{% url 'indicacao' usu.id nome %}',
+'_system', 'location=yes'); return false;">
+                                        <img src="{% static 'img\whatsapp.png' %}" style="width:2%;">
+                                    </a>
                             </div>
                         </div>
                     </div>
