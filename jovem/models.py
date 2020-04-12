@@ -3,6 +3,7 @@ from django.db import models
 
 class Instituicao(models.Model):
     nome = models.CharField(max_length=200)
+    texto = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -53,6 +54,20 @@ class indicado(models.Model):
         return self.nome
 
 
+class TipoTexto(models.Model):
+    nome = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.nome
+
+
+class Textos(models.Model):
+    tipo = models.ForeignKey(TipoTexto, on_delete=models.PROTECT)
+    descricao = models.CharField(max_length=200)
+    texto = models.TextField()
+
+    def __str__(self):
+        return self.descricao
 
 
 

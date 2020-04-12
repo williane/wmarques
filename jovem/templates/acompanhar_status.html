@@ -26,6 +26,12 @@
                         <span>Instituições</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a href="{% url 'textos_list' %}" class="">
+                        <i class="fa fa-info" aria-hidden="true"></i>
+                        <span>Textos</span>
+                    </a>
+                </li>
                 {% endif %}
                 <li class="active">
                     <a href="{% url 'acompanhar_status' %}" class="">
@@ -63,12 +69,12 @@
                                 <div class="fb-share-button" data-href="{{final_url}}{% url 'indicacao' usu.id nome %}" data-layout="button" data-size="small">
                                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartilhar</a>
                                 </div>
-                                    <a href="#" style="text-decoration: none;"
-                                       onclick="window.open(
+                                <a href="#" style="text-decoration: none;"
+                                   onclick="window.open(
 'https://api.whatsapp.com/send?text={{final_url}}{% url 'indicacao' usu.id nome %}',
 '_system', 'location=yes'); return false;">
-                                        <img src="{% static 'img\whatsapp.png' %}" style="width:2%;">
-                                    </a>
+                                    <img src="{% static 'img\whatsapp.png' %}" style="width:2%;">
+                                </a>
                             </div>
                         </div>
                     </div>

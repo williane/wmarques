@@ -28,6 +28,12 @@
                         <span>Instituições</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a href="{% url 'textos_list' %}" class="">
+                        <i class="fa fa-info" aria-hidden="true"></i>
+                        <span>Textos</span>
+                    </a>
+                </li>
                 {% endif %}
                 <li class="sub-menu">
                     <a href="{% url 'acompanhar_status' %}" class="">
@@ -69,7 +75,7 @@
                         <label for="basic-url">senha: {{ senha }}</label>
                         {{ form2.password1|bootstrap}}
                         {{ form2.password2|bootstrap}}
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Aplicar</button>
                     </form>
                 </div>
             </section>

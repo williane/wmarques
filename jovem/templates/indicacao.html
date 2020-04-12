@@ -40,12 +40,9 @@
             </div>
             <div class="col-lg-10">
                 <br><br>
-                <p>Olá, tudo bem?</p>
-                <p> Essa página é para você se cadastrar para receber uma cotação de seguros sem compromisso e caso
-                    venha a contrarar o seguro com a W.Assis, irá me ajudar nos custos para a Jornada Mundial da
-                    Juventude que será em Lisboa, em Julho de 2022. </p>
-                <p> Para me ajudar é simples, basta preencher seus dados e a equipe comercial fará os orçamentos do seu
-                    seguro gratuitamente.</p>
+                <p>{{txt.0}}</p>
+                <p>{{txt.1}}</p>
+                <p>{{txt.2}}</p>
             </div>
         </div>
         <div class="row">
@@ -68,7 +65,7 @@
                         <form role="form" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form|bootstrap }}
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>
                 </section>

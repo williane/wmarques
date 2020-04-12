@@ -1,11 +1,11 @@
 from django.forms import ModelForm
-from .models import Instituicao, Usuario, indicado
+from .models import Instituicao, Usuario, indicado, Textos
 
 
 class InstituicaoForm(ModelForm):
     class Meta:
         model = Instituicao
-        fields = ['nome']
+        fields = ['nome', 'texto']
 
 
 class UsuarioForm(ModelForm):
@@ -24,3 +24,9 @@ class IndicadoForm2(ModelForm):
     class Meta:
         model = indicado
         fields = ['status', 'valor_cotacao', 'valor_comissao']
+
+
+class TextoForm(ModelForm):
+    class Meta:
+        model = Textos
+        fields = ['tipo', 'descricao', 'texto']
