@@ -174,7 +174,7 @@ def indicacao(request, id, nome):
         post1.save()
         body = email_wassis.texto
         send_email(request, body.format(usu.nome, form.cleaned_data['nome'], form.cleaned_data['email'],
-                                        form.cleaned_data['telefone']), 'wassis.teste@gmail.com')
+                                        form.cleaned_data['telefone']), 'wassis@wassis.com.br')
         body = email_indicado.texto
         send_email(request, body.format(form.cleaned_data['nome'], usu.nome, usu.nome), form.cleaned_data['email'])
         body = email_jovem.texto
