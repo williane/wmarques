@@ -227,13 +227,13 @@ def instituicao_update(request, id):
 
 @login_required
 def send_email(request, body, email):
-    smtp_ssl_host = 'smtp.gmail.com'
-    smtp_ssl_port = 465
+    smtp_ssl_host = 'smtp.umbler.com'    #'smtp.gmail.com'
+    smtp_ssl_port = 587                 # 465
     # username ou email para logar no servidor
-    username = 'wassis.teste@gmail.com'
-    password = 'Wassis2020'
+    username = 'wassis@wassis.com.br'           #'wassis.teste@gmail.com'
+    password = 'Was2507**'            #'Wassis2020'
 
-    from_addr = 'wassis.teste@gmail.com'
+    from_addr = 'wassis@wassis.com.br'
     to_addrs = [email]
 
     # a biblioteca email possuí vários templates
@@ -246,7 +246,7 @@ def send_email(request, body, email):
     message['to'] = ', '.join(to_addrs)
 
     # conectaremos de forma segura usando SSL
-    server = smtplib.SMTP_SSL(smtp_ssl_host, smtp_ssl_port)
+    server = smtplib.SMTP(smtp_ssl_host, smtp_ssl_port)
     # para interagir com um servidor externo precisaremos
     # fazer login nele
     server.login(username, password)
