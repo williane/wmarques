@@ -50,7 +50,7 @@ def indicado_update(request, id):
             email_jovem = get_object_or_404(Textos, descricao='Seguro Fechado - Jovem')
             email_indicado = get_object_or_404(Textos, descricao='Seguro Fechado - Indicado')
             body = email_jovem.texto
-            send_email(request, body.format(usu.nome, indicados.nome), usu.email1)
+            send_email(request, body.format(usu.nome, indicados.nome), indicados.resp_indicacao.email1)
             body = email_indicado.texto
             send_email(request, body.format(indicados.nome), indicados.email)
 
@@ -58,7 +58,7 @@ def indicado_update(request, id):
             email_jovem = get_object_or_404(Textos, descricao='Seguro Declinado - Jovem')
             email_indicado = get_object_or_404(Textos, descricao='Seguro Declinado - Indicado')
             body = email_jovem.texto
-            send_email(request, body.format(usu.nome, indicados.nome), usu.email1)
+            send_email(request, body.format(usu.nome, indicados.nome), indicados.resp_indicacao.email1)
             body = email_indicado.texto
             send_email(request, body.format(indicados.nome, usu.nome), indicados.email)
 
