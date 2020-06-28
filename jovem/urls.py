@@ -6,9 +6,9 @@ from .views import usuario_list, usuario_update, instituicao_update, indicado_up
 from .views import texto_list, textos_update
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('admin/', index, name='index'),
     path('perfil/', profile, name='profile'),
-    path('acompanhar_status', acompanhar_status, name='acompanhar_status'),
+    path('', acompanhar_status, name='acompanhar_status'),
     path('form_user/', form_user, name='form_user'),
     path('form_instituicao/', form_instituicao, name='form_instituicao'),
     path('indicacao/<int:id>/<slug:nome>', indicacao, name='indicacao'),
