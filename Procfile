@@ -1,1 +1,0 @@
-web: gunicorn wassis.wsgi --log-file -
